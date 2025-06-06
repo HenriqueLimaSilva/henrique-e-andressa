@@ -2,64 +2,92 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Nosso Amor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nosso Relacionamento 💖</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background-image: url('WhatsApp Image 2025-06-06 at 11.52.03.jpeg'); /* Use o nome do arquivo enviado */
-      background-size: cover;
-      background-position: center;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      color: white;
-      text-shadow: 2px 2px 4px #000;
-    }
-
-    .contador {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 30px;
-      border-radius: 20px;
+      background-color: #ffc0cb;
+      font-family: 'Arial', sans-serif;
       text-align: center;
+      color: #5a2d2d;
+      padding: 50px;
+      overflow: hidden;
     }
 
-    .botao-musica {
-      margin-top: 20px;
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
     }
 
-    iframe {
-      display: none;
+    #contador {
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+
+    .coração {
+      font-size: 4em;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+
+    .heart {
+      position: fixed;
+      top: -50px;
+      color: red;
+      font-size: 24px;
+      animation: fall 5s linear infinite;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="contador">
-    <h1>Estamos juntos há:</h1>
-    <p id="dias"></p>
+  <h1>💖 Estamos juntos há...</h1>
+  <div id="contador">Carregando dias...</div>
+  <div class="coração">❤️</div>
 
-    <div class="botao-musica">
-      <button onclick="tocarMusicaplay">▶ Ouvir nossa música</button>
-    </div>
-
-    <div id="musica"><
-  </div>
+  <audio controls autoplay loop>
+    <!-- Caminho local para o arquivo (funciona apenas no seu navegador local) -->
+    <source src="musica.mp3" type="audio/mp3">
+    Seu navegador não suporta áudio.
+  </audio>
 
   <script>
-    const dataInicio = new Date("2022-05-19");
+    // Contador de dias
+    const dataInicio = new Date(2022, 4, 19); // 19 de maio de 2022
     const hoje = new Date();
-    const diffTempo = hoje - dataInicio;
-    const dias = Math.floor(diffTempo / (1000 * 60 * 60 * 24));
-    document.getElementById("dias").textContent = `${dias} dias ❤️`;
+    const diferenca = hoje - dataInicio;
+    const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+    document.getElementById("contador").innerText = `Estamos juntos há ${dias} dias 💕`;
 
-    function tocarMusica() {
-      document.getElementById("Ed Sheeran - Perfect (Official Music Video)").innerHTML = C:\Users\henri\Downloads
-        <iframe width="0" height="0" src="" 
-        frameborder="0" allow="autoplay" allowfullscreen></iframe>`;
+    // Corações caindo
+    function criarCoracao() {
+      const coracao = document.createElement('div');
+      coracao.classList.add('heart');
+      coracao.style.left = Math.random() * 100 + 'vw';
+      coracao.style.fontSize = Math.random() * 20 + 10 + 'px';
+      coracao.innerText = '❤️';
+      document.body.appendChild(coracao);
+      setTimeout(() => coracao.remove(), 5000);
     }
+
+    setInterval(criarCoracao, 300);
   </script>
 </body>
 </html>
