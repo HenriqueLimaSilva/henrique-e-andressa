@@ -1,34 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Nosso Amor</title>
   <style>
     body {
+      margin: 0;
+      padding: 0;
+      background-image: url('foto.jpg'); /* Use o nome do arquivo enviado */
+      background-size: cover;
+      background-position: center;
       font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      color: white;
+      text-shadow: 2px 2px 4px #000;
+    }
+
+    .contador {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 30px;
+      border-radius: 20px;
       text-align: center;
-      margin-top: 100px;
-      background-color: #fef6f9;
-      color: #c94f7c;
     }
-    h1 {
-      font-size: 2.5em;
-    }
-    p {
-      font-size: 2em;
+
+    .botao-musica {
       margin-top: 20px;
+    }
+
+    iframe {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <h1>Estamos juntos há:</h1>
-  <p id="dias"></p>
+  <div class="contador">
+    <h1>Estamos juntos há:</h1>
+    <p id="dias"></p>
+
+    <div class="botao-musica">
+      <button onclick="tocarMusica()">▶ Ouvir nossa música</button>
+    </div>
+
+    <div id="musica"></div>
+  </div>
 
   <script>
     const dataInicio = new Date("2022-05-19");
     const hoje = new Date();
-    const diff = Math.floor((hoje - dataInicio) / (1000 * 60 * 60 * 24));
-    document.getElementById("dias").innerText = `${diff} dias ❤️`;
+    const diffTempo = hoje - dataInicio;
+    const dias = Math.floor(diffTempo / (1000 * 60 * 60 * 24));
+    document.getElementById("dias").textContent = `${dias} dias ❤️`;
+
+    function tocarMusica() {
+      document.getElementById("musica").innerHTML = `
+        <iframe width="0" height="0" src="https://www.youtube.com/embed/2Vv-BfVoq4g?autoplay=1" 
+        frameborder="0" allow="autoplay" allowfullscreen></iframe>`;
+    }
   </script>
 </body>
 </html>
