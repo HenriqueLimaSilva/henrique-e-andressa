@@ -1,9 +1,9 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Nosso Relacionamento 💖</title>
+  <title>Nosso Amor 💖</title>
   <style>
     body {
       background-color: #ffc0cb;
@@ -55,18 +55,27 @@
         opacity: 0;
       }
     }
+
+    .video-container {
+      margin-top: 30px;
+    }
   </style>
 </head>
 <body>
-  <h1>💖 Estamos juntos há...</h1>
+  <h1>💖 Nosso Relacionamento</h1>
   <div id="contador">Carregando dias...</div>
   <div class="coração">❤️</div>
 
-  <audio controls autoplay loop>
-    <!-- Caminho local para o arquivo (funciona apenas no seu navegador local) -->
-    <source src="musica.mp3" type="audio/mp3">
-    Seu navegador não suporta áudio.
-  </audio>
+  <!-- Player de música do YouTube -->
+  <div class="video-container">
+    <iframe width="360" height="215"
+      src="https://www.youtube.com/embed/2Vv-BfVoq4g?autoplay=1&loop=1&playlist=2Vv-BfVoq4g"
+      title="Perfect - Ed Sheeran"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen>
+    </iframe>
+  </div>
 
   <script>
     // Contador de dias
