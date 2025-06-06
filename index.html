@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Nosso Amor</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 100px;
+      background-color: #fef6f9;
+      color: #c94f7c;
+    }
+    h1 {
+      font-size: 2.5em;
+    }
+    p {
+      font-size: 2em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Estamos juntos há:</h1>
+  <p id="dias"></p>
+
+  <script>
+    const dataInicio = new Date("2022-05-19");
+    const hoje = new Date();
+    const diff = Math.floor((hoje - dataInicio) / (1000 * 60 * 60 * 24));
+    document.getElementById("dias").innerText = `${diff} dias ❤️`;
+  </script>
+</body>
+</html>
